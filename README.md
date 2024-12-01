@@ -36,7 +36,7 @@ In the data.txt file, you need to have the following format:
 query_id=xxx or user=xxxx
 
 
-## Run the tool using the command:
+## To gain maximally, run the tool twice a day (preferably morning and evening) to clear all tasks and get airdrop points. Use the command:
 
 noproxy:
 `./zplay.sh`
