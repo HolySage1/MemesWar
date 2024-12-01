@@ -528,7 +528,7 @@ class MemesWar {
         if (transferResult.success) {
           warbondTokens = initWarbondTokens - warbondTokens;
         } else {
-          this.log(`Unable to transfer $War.Bond: ${transferResult.error}`, "error");
+          this.log("error");
         }
       }
       //process.exit(0);
