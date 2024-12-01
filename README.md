@@ -39,9 +39,7 @@ query_id=xxx or user=xxxx
 ## Run the tool using the command:
 
 noproxy:
-
-`node meme.js`
+`./zplay.sh`
 
 proxy:
-
-`node meme-proxy.js`
+`./zplay_proxy.sh`
