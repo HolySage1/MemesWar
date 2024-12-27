@@ -4,7 +4,7 @@ const { _isArray } = require("../utils.js");
 const settings = {
   TIME_SLEEP: process.env.TIME_SLEEP ? parseInt(process.env.TIME_SLEEP) : 8,
   MAX_THEADS: process.env.MAX_THEADS ? parseInt(process.env.MAX_THEADS) : 10,
-  AMOUNT_ATTACK: process.env.AMOUNT_ATTACK ? parseInt(process.env.AMOUNT_ATTACK) : 0,
+  AMOUNT_ATTACK: process.env.AMOUNT_ATTACK ? parseInt(process.env.AMOUNT_ATTACK) : 5,
   SKIP_TASKS: process.env.SKIP_TASKS ? JSON.parse(process.env.SKIP_TASKS.replace(/'/g, '"')) : [],
   LEADERS: process.env.LEADERS ? JSON.parse(process.env.LEADERS.replace(/'/g, '"')) : ["floki", "ant", "cz", "pepe", "elon", "wif"],
   MEMBERS: process.env.MEMBERS ? JSON.parse(process.env.MEMBERS.replace(/'/g, '"')) : ["archer", "police", "solder", "ninja"],
@@ -12,7 +12,7 @@ const settings = {
   AUTO_CREATE_USER_AGENT: process.env.AUTO_CREATE_USER_AGENT ? process.env.AUTO_CREATE_USER_AGENT.toLowerCase() === "true" : true,
   AUTO_JOIN_GUILD: process.env.AUTO_JOIN_GUILD ? process.env.AUTO_JOIN_GUILD.toLowerCase() === "true" : true,
   GUILD_BONUS: "",
-  AUTO_PLAY_GAME: process.env.AUTO_PLAY_GAME ? process.env.AUTO_PLAY_GAME.toLowerCase() === "true" : false,
+  AUTO_PLAY_GAME: process.env.AUTO_PLAY_GAME ? process.env.AUTO_PLAY_GAME.toLowerCase() === "true" : true,
   CONNECT_WALLET: process.env.CONNECT_WALLET ? process.env.CONNECT_WALLET.toLowerCase() === "true" : false,
   TRANSFER_WARBOND_TO_MAIN_GUILD: process.env.TRANSFER_WARBOND_TO_MAIN_GUILD ? process.env.TRANSFER_WARBOND_TO_MAIN_GUILD.toLowerCase() === "true" : true,
   BONUS: process.env.BONUS ? parseInt(process.env.BONUS) : 0,

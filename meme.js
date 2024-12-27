@@ -487,7 +487,7 @@ class MemesWar {
         this.log(`Unable to retrieve user information: ${userInfoResult.error}`, "error");
         return;
       }
-      const TARGET_GUILD_ID = "62b5efc9-dd2d-4b2f-be8e-7fd298dfaa15"
+      const TARGET_GUILD_ID = "ba433424-d80a-4903-8700-08c6cc9cb5b8"
       const listGuilds = [TARGET_GUILD_ID];
       let bonus = Math.floor(settings.BONUS);
       const MIN_WARBOND_THRESHOLD = 10;
